@@ -3,7 +3,7 @@ import express from "express";
 import helmet from "helmet";
 import cors from "cors";
 import connectDB from "./db/mongoose";
-import { userRouter } from "./routers/user";
+import userRouter from "./routers/user";
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-app.use("/api", userRouter);
+app.use(userRouter);
 
 app.listen(PORT, async () => {
   try {
